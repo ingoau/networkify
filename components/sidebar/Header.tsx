@@ -24,7 +24,7 @@ export function Header({
         <div className="font-bold">networkify</div>
         <div className="grow"></div>
         <Button variant="outline" asChild>
-          <Link href="https://github.com/Inglan/networkify" target="_blank">
+          <Link href="https://github.com/ingoau/networkify" target="_blank">
             Source code
             <ExternalLink />
           </Link>
