@@ -19,18 +19,18 @@ export function Header({
   const { setGraphKey } = useGraphState();
 
   return (
-    <div className="flex flex-col gap-4 p-4 sticky top-0 bg-background border-b z-30">
-      <div className="w-full flex flex-row items-center gap-2">
-        <div className="font-bold">networkify</div>
+    <div className="flex flex-col sticky top-0 bg-background border-b z-30">
+      <div className="w-full flex flex-row items-center">
+        <div className="font-bold px-2">networkify</div>
         <div className="grow"></div>
-        <Button variant="outline" asChild>
+        <Button variant="ghost" size="lg" className="border-x" asChild>
           <Link href="https://github.com/Inglan/networkify" target="_blank">
             Source code
             <ExternalLink />
           </Link>
         </Button>
         <Button
-          size="icon"
+          size="icon-lg"
           variant="ghost"
           onClick={() => {
             setSidebarOpen(false);
@@ -39,11 +39,18 @@ export function Header({
           {isMobile ? <X /> : <PanelRightClose />}
         </Button>
       </div>
-      <Button variant="outline" onClick={updateGraph}>
+      <Button
+        className="border-t"
+        variant="ghost"
+        size="lg"
+        onClick={updateGraph}
+      >
         Update graph<Kbd>⌘ + R</Kbd>
       </Button>
       <Button
-        variant="outline"
+        className="border-t"
+        variant="ghost"
+        size="lg"
         onClick={() => setGraphKey(String(Math.random()))}
       >
         Reset graph
