@@ -80,15 +80,15 @@ export function Data({
         <Accordion
           type="single"
           collapsible
-          className="border rounded-md px-4 m-4 bg-background"
+          className="border rounded-md m-4 bg-background"
         >
           <AccordionItem value="saves">
-            <AccordionTrigger>Saves</AccordionTrigger>
-            <AccordionContent>
-              <div className="flex flex-col gap-2">
+            <AccordionTrigger className="px-4">Saves</AccordionTrigger>
+            <AccordionContent className="p-0!">
+              <div className="flex flex-col">
                 {saves.map((s) => (
                   <div
-                    className="border rounded-md flex flex-row bg-card"
+                    className="border-t rounded-md flex flex-row bg-card"
                     key={s.id}
                   >
                     <div className="flex flex-col p-4 border-r grow bg-background">
