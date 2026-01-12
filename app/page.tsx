@@ -192,10 +192,10 @@ export default function Home() {
         key={graphKey}
       />
       <Onboarding />
-      <div className="fixed bottom-2 left-2 border border-dashed bg-background">
+      <div className="fixed bottom-2 left-2 border border-dashed bg-background flex flex-row">
         {stats.map((stat) => (
           <div
-            className="px-4 py-2 border-b border-dashed last:border-b-0"
+            className="px-2 py-1 border-r border-dashed last:border-b-0"
             key={stat.text}
           >
             {stat.text}: {stat.value}
