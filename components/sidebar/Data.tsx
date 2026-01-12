@@ -52,6 +52,7 @@ export function Data({
       </Button>
       <Button
         variant="ghost"
+        className="border-b"
         onClick={() => {
           dataUtils.loadFromExport().then((data) => {
             setUsers(data.users);
@@ -67,7 +68,7 @@ export function Data({
           className="border rounded-md bg-background"
         >
           <form
-            className="flex flex-row required"
+            className="flex flex-row required border-b"
             onSubmit={(e) => {
               e.preventDefault();
               const formElement = e.target as HTMLFormElement;
@@ -79,7 +80,12 @@ export function Data({
               formElement.reset();
             }}
           >
-            <Input required name="name" placeholder="Save name" />{" "}
+            <Input
+              required
+              name="name"
+              placeholder="Save name"
+              className="border-0!"
+            />
             <Button>Save</Button>
           </form>
           <AccordionItem value="saves">
