@@ -116,7 +116,13 @@ export function Discover({
       {discoverActions.map((action, index) => (
         <Button
           key={index}
-          onClick={() => {}}
+          onClick={() => {
+            action.usersToSearch.forEach((user) => {
+              user.searchState = "searching";
+              discover(user.username);
+            });
+            updateGraph();
+          }}
           variant="ghost"
           className="border-b"
         >
