@@ -74,7 +74,7 @@ export function Discover({
   return (
     <div className="flex flex-col">
       <div className="border-y border-dashed flex flex-row">
-        <div className="px-3 flex justify-center items-center border-r border-dashed">
+        <div className="px-3 flex justify-center items-center border-r border-dashed bg-card">
           Token
         </div>
         <Input
