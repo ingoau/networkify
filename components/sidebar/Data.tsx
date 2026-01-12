@@ -88,31 +88,34 @@ export function Data({
               <div className="flex flex-col gap-2">
                 {saves.map((s) => (
                   <div
-                    className="border p-2 pl-4 rounded-md flex flex-row gap-2 items-center"
+                    className="border rounded-md flex flex-row bg-card"
                     key={s.id}
                   >
-                    <div className="flex flex-col">
+                    <div className="flex flex-col p-4 border-r grow bg-background">
                       <div>{s.name}</div>
-                      <div>{new Date(s.timestamp).toLocaleString()}</div>
+                      <div className="text-xs">
+                        {new Date(s.timestamp).toLocaleString()}
+                      </div>
                     </div>
-                    <div className="grow"></div>
-                    <Button
-                      size="icon"
-                      variant="ghost"
-                      onClick={() => {
-                        deleteSave(s.id);
-                      }}
-                    >
-                      <Trash />
-                    </Button>
-                    <Button
-                      size="icon"
-                      onClick={() => {
-                        setUsers(s.data.users);
-                      }}
-                    >
-                      <ArchiveRestore />
-                    </Button>
+                    <div className="flex flex-row border-b h-fit bg-background">
+                      <Button
+                        size="icon"
+                        variant="ghost"
+                        onClick={() => {
+                          deleteSave(s.id);
+                        }}
+                      >
+                        <Trash />
+                      </Button>
+                      <Button
+                        size="icon"
+                        onClick={() => {
+                          setUsers(s.data.users);
+                        }}
+                      >
+                        <ArchiveRestore />
+                      </Button>
+                    </div>
                   </div>
                 ))}
               </div>
