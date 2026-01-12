@@ -4,7 +4,7 @@ import { getUser } from "@/lib/actions";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { toast } from "sonner";
-import { Users } from "@/lib/types";
+import { User, Users } from "@/lib/types";
 import * as tokenUtils from "@/lib/tokenUtils";
 import { useGraphState, usePreferencesState } from "@/lib/state";
 
@@ -23,6 +23,16 @@ export function Discover({
 }) {
   const { setToken, token } = usePreferencesState();
   const { selected } = useGraphState();
+
+  const discoverActions: {
+    usersToSearch: User[];
+    text: string;
+  }[] = [
+    {
+      usersToSearch: [],
+      text: "No one",
+    },
+  ];
 
   return (
     <div className="flex flex-col">
@@ -66,6 +76,16 @@ export function Discover({
       >
         Add current user
       </Button>
+      {discoverActions.map((action, index) => (
+        <Button
+          key={index}
+          onClick={() => {}}
+          variant="ghost"
+          className="border-b"
+        >
+          {action.text} ({action.usersToSearch.length})
+        </Button>
+      ))}
       <Button
         disabled={!token || activeOperations > 0}
         onClick={async () => {
