@@ -73,24 +73,30 @@ export function Discover({
 
   return (
     <div className="flex flex-col">
-      Token:
-      <Input
-        className="blur-sm hover:blur-none focus:blur-none duration-300"
-        placeholder="Token"
-        type="text"
-        value={token}
-        onChange={(e) => setToken(e.target.value)}
-        onPaste={(e) => {
-          e.preventDefault();
-          try {
-            const token = tokenUtils.getFromClipboard(e);
-            setToken(token);
-          } catch {
-            setToken(e.clipboardData.getData("text"));
-          }
-        }}
-      />
+      <div className="border-y border-dashed flex flex-row">
+        <div className="px-3 flex justify-center items-center border-r border-dashed">
+          Token
+        </div>
+        <Input
+          className="blur-[5px] hover:blur-none focus:blur-none duration-300 border-0"
+          placeholder="Token"
+          type="text"
+          value={token}
+          onChange={(e) => setToken(e.target.value)}
+          onPaste={(e) => {
+            e.preventDefault();
+            try {
+              const token = tokenUtils.getFromClipboard(e);
+              setToken(token);
+            } catch {
+              setToken(e.clipboardData.getData("text"));
+            }
+          }}
+        />
+      </div>
       <Button
+        variant="ghost"
+        className="border-b border-dashed"
         disabled={!token}
         onClick={async () => {
           try {
