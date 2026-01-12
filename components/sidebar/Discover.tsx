@@ -25,7 +25,7 @@ export function Discover({
   const { selected } = useGraphState();
 
   return (
-    <div className="flex flex-col gap-2">
+    <div className="flex flex-col">
       Token:
       <Input
         className="blur-sm hover:blur-none focus:blur-none duration-300"
