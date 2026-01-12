@@ -182,7 +182,7 @@ export function Discover({
         {users.filter((user) => !user.exclude_from_graph).length})
       </Button>
       <Button
-        disabled={!token || activeOperations > 0}
+        disabled={!token || activeOperations > 0 || !selected.length}
         onClick={async () => {
           selected
             .map((userid) => users.find((user) => user.username === userid))
