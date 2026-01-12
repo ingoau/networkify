@@ -163,7 +163,7 @@ export default function Home() {
       <Button
         size="icon"
         variant="ghost"
-        className={clsx("fixed right-4 z-50", isMobile ? "bottom-4" : "top-4")}
+        className={clsx("fixed right-0 z-50", isMobile ? "bottom-0" : "top-0")}
         onClick={() => setSidebarOpen(!sidebarOpen)}
       >
         {isMobile ? <PanelBottom /> : <PanelRight />}
