@@ -113,10 +113,20 @@ export default function Home() {
 
   const onboardingOpen = useOnboardingDialogState((state) => state.open);
 
+  const { nodes, edges } = useGraphState();
+
   const stats = [
     {
       text: "Active Searches",
       value: activeOperations,
+    },
+    {
+      text: "Nodes",
+      value: nodes.length,
+    },
+    {
+      text: "Edges",
+      value: edges.length,
     },
   ];
 
