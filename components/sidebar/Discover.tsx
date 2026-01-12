@@ -115,6 +115,7 @@ export function Discover({
       </Button>
       {discoverActions.map((action, index) => (
         <Button
+          disabled={!token || !action.usersToSearch.length}
           key={index}
           onClick={() => {
             action.usersToSearch.forEach((user) => {
