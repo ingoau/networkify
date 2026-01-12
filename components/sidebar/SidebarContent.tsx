@@ -75,7 +75,7 @@ export function SidebarContent({
         </AccordionItem>
         <AccordionItem value="Data">
           <AccordionTrigger className="px-4">Data</AccordionTrigger>
-          <AccordionContent className="p-4">
+          <AccordionContent className="p-0!">
             <Data setUsersAction={setUsers} users={users} />
           </AccordionContent>
         </AccordionItem>
