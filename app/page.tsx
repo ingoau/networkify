@@ -128,6 +128,10 @@ export default function Home() {
       text: "Edges",
       value: edges.length,
     },
+    {
+      text: "Users",
+      value: users.length,
+    },
   ];
 
   return (
