@@ -27,8 +27,10 @@ export function Data({
   const { edges, nodes } = useGraphState();
 
   return (
-    <div className="flex flex-col gap-2">
+    <div className="flex flex-col border-t">
       <Button
+        variant="ghost"
+        className="border-b border-dashed"
         onClick={() => {
           setUsers([]);
         }}
@@ -36,6 +38,8 @@ export function Data({
         Clear all
       </Button>
       <Button
+        variant="ghost"
+        className="border-b border-dashed"
         onClick={() => {
           const data = {
             users,
@@ -47,6 +51,8 @@ export function Data({
         Save
       </Button>
       <Button
+        variant="ghost"
+        className="border-b border-dashed"
         onClick={() => {
           dataUtils.loadFromExport().then((data) => {
             setUsers(data.users);
