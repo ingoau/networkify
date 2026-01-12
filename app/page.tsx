@@ -113,6 +113,13 @@ export default function Home() {
 
   const onboardingOpen = useOnboardingDialogState((state) => state.open);
 
+  const stats = [
+    {
+      text: "Active Searches",
+      value: activeOperations,
+    },
+  ];
+
   return (
     <>
       <Drawer
@@ -175,6 +182,16 @@ export default function Home() {
         key={graphKey}
       />
       <Onboarding />
+      <div className="fixed bottom-2 left-2 border border-dashed bg-background">
+        {stats.map((stat) => (
+          <div
+            className="px-4 py-2 border-b border-dashed last:border-b-0"
+            key={stat.text}
+          >
+            {stat.text}: {stat.value}
+          </div>
+        ))}
+      </div>
     </>
   );
 }
