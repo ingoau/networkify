@@ -105,7 +105,7 @@ export function Onboarding() {
                   (theres no reason you should), then you can audit the code,
                   which is{" "}
                   <Link
-                    href="https://github.com/Inglan/networkify"
+                    href="https://github.com/ingoau/networkify"
                     target="_blank"
                     className="underline"
                     rel="noopener noreferrer"
