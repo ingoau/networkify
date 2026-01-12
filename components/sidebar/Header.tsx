@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button";
 import { Kbd } from "@/components/ui/kbd";
 import { useIsMobile } from "@/hooks/use-mobile";
 import { useGraphState } from "@/lib/state";
+import { cn } from "@/lib/utils";
 import { ExternalLink, PanelRightClose, X } from "lucide-react";
 import Link from "next/link";
 import * as React from "react";
@@ -19,7 +20,12 @@ export function Header({
   const { setGraphKey } = useGraphState();
 
   return (
-    <div className="flex flex-col sticky top-0 bg-background border-b z-30">
+    <div
+      className={cn(
+        "flex flex-col sticky top-0 bg-background border-b z-30",
+        isMobile && "border-t mt-4",
+      )}
+    >
       <div className="w-full flex flex-row items-center">
         <div className="font-bold px-2">networkify</div>
         <div className="grow"></div>
