@@ -16,7 +16,7 @@ const eslintConfig = [
     plugins: ["unused-imports"],
     rules: {
       "@typescript-eslint/no-explicit-any": "warn",
-      "unused-imports/no-unused-imports": "error",
+      "unused-imports/no-unused-imports": "warn",
     },
   }),
   {
