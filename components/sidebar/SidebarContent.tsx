@@ -85,7 +85,7 @@ export function SidebarContent({
             <Kbd>⌘ + F</Kbd>
             <div className="grow"></div>
           </AccordionTrigger>
-          <AccordionContent>
+          <AccordionContent className="p-0!">
             <Search
               openAccordionAction={openAccordion}
               selectedUserId={
@@ -98,7 +98,7 @@ export function SidebarContent({
         </AccordionItem>
         <AccordionItem value="info">
           <AccordionTrigger className="px-4">User info</AccordionTrigger>
-          <AccordionContent className="p-4">
+          <AccordionContent className="p-0!">
             <UserInfo
               closeAccordionAction={closeAccordion}
               discoverAction={discover}
