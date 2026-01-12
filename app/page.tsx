@@ -1,12 +1,11 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
-import { GraphCanvasRef } from "reagraph";
+import { useEffect, useState } from "react";
 import { Button } from "@/components/ui/button";
 import { useHotkeys } from "react-hotkeys-hook";
 import clsx from "clsx";
 import { PanelBottom, PanelRight } from "lucide-react";
-import { Edge, Node, Users } from "@/lib/types";
+import { Users } from "@/lib/types";
 import * as user from "@/lib/userUtils";
 import * as spotify from "@/lib/spotifyClientUtils";
 import { Graph } from "../components/graph/Graph";

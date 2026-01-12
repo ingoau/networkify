@@ -2,7 +2,7 @@
 
 import { Button } from "@/components/ui/button";
 import * as dataUtils from "@/lib/dataUtils";
-import { Edge, Node, Users } from "@/lib/types";
+import { Users } from "@/lib/types";
 import {
   Accordion,
   AccordionContent,

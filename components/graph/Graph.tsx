@@ -1,8 +1,6 @@
 "use client";
 
-import { RefObject, useState } from "react";
-import { darkTheme, GraphCanvas, GraphCanvasRef } from "reagraph";
-import { Edge, Node } from "@/lib/types";
+import { darkTheme, GraphCanvas } from "reagraph";
 import { useGraphState } from "@/lib/state";
 
 export function Graph({

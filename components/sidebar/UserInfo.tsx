@@ -1,7 +1,5 @@
 "use client";
 
-import { RefObject } from "react";
-import { GraphCanvasRef } from "reagraph";
 import { Button } from "@/components/ui/button";
 import {
   Command,
@@ -28,7 +26,7 @@ import {
 import { Kbd } from "@/components/ui/kbd";
 import { toast } from "sonner";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
-import { Node, User } from "@/lib/types";
+import { User } from "@/lib/types";
 import { useGraphState } from "@/lib/state";
 
 export function UserInfo({

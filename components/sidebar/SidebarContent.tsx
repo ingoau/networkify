@@ -1,6 +1,5 @@
 "use client";
 
-import { GraphCanvasRef } from "reagraph";
 import {
   Accordion,
   AccordionContent,
@@ -8,7 +7,7 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion";
 import { Kbd } from "@/components/ui/kbd";
-import { Edge, Node, Users } from "@/lib/types";
+import { Users } from "@/lib/types";
 import { Data } from "./Data";
 import { Header } from "./Header";
 import { Discover } from "./Discover";

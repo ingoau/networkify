@@ -1,7 +1,5 @@
 "use client";
 
-import { RefObject } from "react";
-import { GraphCanvasRef } from "reagraph";
 import {
   Command,
   CommandEmpty,
@@ -10,7 +8,7 @@ import {
   CommandItem,
   CommandList,
 } from "@/components/ui/command";
-import { Node, User } from "@/lib/types";
+import { User } from "@/lib/types";
 import { useGraphState } from "@/lib/state";
 
 export function Search({
