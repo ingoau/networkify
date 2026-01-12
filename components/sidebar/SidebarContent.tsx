@@ -63,7 +63,7 @@ export function SidebarContent({
       >
         <AccordionItem value="discover">
           <AccordionTrigger className="px-4">Discover</AccordionTrigger>
-          <AccordionContent>
+          <AccordionContent className="p-0!">
             <Discover
               activeOperations={activeOperations}
               discoverAction={discover}
