@@ -6,7 +6,7 @@ import { Input } from "@/components/ui/input";
 import { toast } from "sonner";
 import { Users } from "@/lib/types";
 import * as tokenUtils from "@/lib/tokenUtils";
-import { usePreferencesState } from "@/lib/state";
+import { useGraphState, usePreferencesState } from "@/lib/state";
 
 export function Discover({
   setUsersAction: setUsers,
@@ -22,6 +22,8 @@ export function Discover({
   discoverAction: (id: string) => void;
 }) {
   const { setToken, token } = usePreferencesState();
+  const { selected } = useGraphState();
+
   return (
     <div className="flex flex-col gap-2">
       Token:
@@ -178,6 +180,22 @@ export function Discover({
       >
         Run on all nodes (
         {users.filter((user) => !user.exclude_from_graph).length})
+      </Button>
+      <Button
+        disabled={!token || activeOperations > 0}
+        onClick={async () => {
+          selected
+            .map((userid) => users.find((user) => user.username === userid))
+            .filter((user) => !!user)
+            .filter((user) => !user.exclude_from_graph)
+            .forEach((user) => {
+              user.searchState = "searching";
+              discover(user.username);
+            });
+          updateGraph();
+        }}
+      >
+        Run on selected nodes ({selected.length})
       </Button>
       <div>{activeOperations} active searches</div>
     </div>
