@@ -60,28 +60,28 @@ export function Data({
       >
         Load
       </Button>
-      <form
-        className="flex flex-row required"
-        onSubmit={(e) => {
-          e.preventDefault();
-          const formElement = e.target as HTMLFormElement;
-          const formData = new FormData(formElement);
-          const data = Object.fromEntries(formData.entries());
-          const saveName = data.name.toString();
-          if (!saveName) return;
-          createSave({ users }, saveName);
-          formElement.reset();
-        }}
-      >
-        <Input required name="name" placeholder="Save name" />{" "}
-        <Button>Save</Button>
-      </form>
-      <div className="bg-card">
+      <div className="bg-card p-4">
         <Accordion
           type="single"
           collapsible
-          className="border rounded-md m-4 bg-background"
+          className="border rounded-md bg-background"
         >
+          <form
+            className="flex flex-row required"
+            onSubmit={(e) => {
+              e.preventDefault();
+              const formElement = e.target as HTMLFormElement;
+              const formData = new FormData(formElement);
+              const data = Object.fromEntries(formData.entries());
+              const saveName = data.name.toString();
+              if (!saveName) return;
+              createSave({ users }, saveName);
+              formElement.reset();
+            }}
+          >
+            <Input required name="name" placeholder="Save name" />{" "}
+            <Button>Save</Button>
+          </form>
           <AccordionItem value="saves">
             <AccordionTrigger className="px-4">Saves</AccordionTrigger>
             <AccordionContent className="p-0!">
