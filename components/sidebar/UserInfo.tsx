@@ -53,7 +53,7 @@ export function UserInfo({
     <>
       {selectedUserId ? (
         <div className="flex flex-col">
-          <div className="border rounded-md p-4">
+          <div className="border-t rounded-md p-4">
             <h2 className="text-lg font-bold">
               {users.find((user) => user.username == selectedUserId)?.name}
             </h2>
@@ -77,7 +77,7 @@ export function UserInfo({
                   users.find((user) => user.username === selectedUserId)?.error}
             </span>
           </div>
-          <Command className="bg-transparent border">
+          <Command className="bg-transparent border-t">
             <CommandInput autoFocus placeholder="Actions" />
             <CommandList>
               <CommandEmpty>No results found.</CommandEmpty>
@@ -157,7 +157,7 @@ export function UserInfo({
           </Command>
           {users.find((user) => user.username == selectedUserId)?.searchState ==
           "searched" ? (
-            <Accordion type="multiple" className="border rounded-md px-4">
+            <Accordion type="multiple" className="border-y rounded-md">
               {[
                 {
                   title: "Followers",
@@ -197,7 +197,7 @@ export function UserInfo({
                 },
               ].map(({ title, id, value, onclick }) => {
                 return (
-                  <AccordionItem value={id} key={id}>
+                  <AccordionItem value={id} key={id} className="px-4">
                     <AccordionTrigger>
                       {title} ({value?.length})
                     </AccordionTrigger>
@@ -231,7 +231,7 @@ export function UserInfo({
               })}
             </Accordion>
           ) : (
-            <Empty className="border border-dashed">
+            <Empty className="border-y border-dashed">
               <EmptyHeader>
                 <EmptyMedia variant="icon">
                   <SearchX />
@@ -247,7 +247,7 @@ export function UserInfo({
           )}
         </div>
       ) : (
-        <Empty className="border border-dashed">
+        <Empty className="border-b">
           <EmptyHeader>
             <EmptyMedia variant="icon">
               <UserIcon />
