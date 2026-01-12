@@ -29,8 +29,45 @@ export function Discover({
     text: string;
   }[] = [
     {
-      usersToSearch: [],
-      text: "No one",
+      text: "All unsearched nodes",
+      usersToSearch: users.filter(
+        (user) =>
+          user.searchState == "not_searched" && !user.exclude_from_graph,
+      ),
+    },
+    {
+      text: "Nodes with no follows",
+      usersToSearch: users.filter(
+        (user) =>
+          !user.exclude_from_graph &&
+          user.followers.length + user.following.length == 0,
+      ),
+    },
+    {
+      text: "Searched nodes w/ no follows",
+      usersToSearch: users.filter(
+        (user) =>
+          user.searchState == "searched" &&
+          !user.exclude_from_graph &&
+          user.followers.length + user.following.length == 0,
+      ),
+    },
+    {
+      text: "Errored nodes",
+      usersToSearch: users.filter(
+        (user) => user.searchState == "error" && !user.exclude_from_graph,
+      ),
+    },
+    {
+      text: "All nodes",
+      usersToSearch: users.filter((user) => !user.exclude_from_graph),
+    },
+    {
+      text: "Selected nodes",
+      usersToSearch: selected
+        .map((userid) => users.find((user) => user.username === userid))
+        .filter((user) => !!user)
+        .filter((user) => !user.exclude_from_graph),
     },
   ];
 
