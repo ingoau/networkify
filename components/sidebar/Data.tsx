@@ -52,7 +52,6 @@ export function Data({
       </Button>
       <Button
         variant="ghost"
-        className="border-b border-dashed"
         onClick={() => {
           dataUtils.loadFromExport().then((data) => {
             setUsers(data.users);
@@ -61,13 +60,8 @@ export function Data({
       >
         Load
       </Button>
-      <div>You may need to manually update the graph after loading data.</div>
-      <div>{nodes.length} nodes</div>
-      <div>{edges.length} edges</div>
-      <div>{users.length} users</div>
-
       <form
-        className="flex flex-row gap-2 required"
+        className="flex flex-row required"
         onSubmit={(e) => {
           e.preventDefault();
           const formElement = e.target as HTMLFormElement;
@@ -82,45 +76,51 @@ export function Data({
         <Input required name="name" placeholder="Save name" />{" "}
         <Button>Save</Button>
       </form>
-      <Accordion type="single" collapsible className="border rounded-md px-4">
-        <AccordionItem value="saves">
-          <AccordionTrigger>Saves</AccordionTrigger>
-          <AccordionContent>
-            <div className="flex flex-col gap-2">
-              {saves.map((s) => (
-                <div
-                  className="border p-2 pl-4 rounded-md flex flex-row gap-2 items-center"
-                  key={s.id}
-                >
-                  <div className="flex flex-col">
-                    <div>{s.name}</div>
-                    <div>{new Date(s.timestamp).toLocaleString()}</div>
+      <div className="bg-card">
+        <Accordion
+          type="single"
+          collapsible
+          className="border rounded-md px-4 m-4 bg-background"
+        >
+          <AccordionItem value="saves">
+            <AccordionTrigger>Saves</AccordionTrigger>
+            <AccordionContent>
+              <div className="flex flex-col gap-2">
+                {saves.map((s) => (
+                  <div
+                    className="border p-2 pl-4 rounded-md flex flex-row gap-2 items-center"
+                    key={s.id}
+                  >
+                    <div className="flex flex-col">
+                      <div>{s.name}</div>
+                      <div>{new Date(s.timestamp).toLocaleString()}</div>
+                    </div>
+                    <div className="grow"></div>
+                    <Button
+                      size="icon"
+                      variant="ghost"
+                      onClick={() => {
+                        deleteSave(s.id);
+                      }}
+                    >
+                      <Trash />
+                    </Button>
+                    <Button
+                      size="icon"
+                      onClick={() => {
+                        setUsers(s.data.users);
+                      }}
+                    >
+                      <ArchiveRestore />
+                    </Button>
                   </div>
-                  <div className="grow"></div>
-                  <Button
-                    size="icon"
-                    variant="ghost"
-                    onClick={() => {
-                      deleteSave(s.id);
-                    }}
-                  >
-                    <Trash />
-                  </Button>
-                  <Button
-                    size="icon"
-                    onClick={() => {
-                      setUsers(s.data.users);
-                    }}
-                  >
-                    <ArchiveRestore />
-                  </Button>
-                </div>
-              ))}
-            </div>
-            {saves.length === 0 && <div>No saves available</div>}
-          </AccordionContent>
-        </AccordionItem>
-      </Accordion>
+                ))}
+              </div>
+              {saves.length === 0 && <div>No saves available</div>}
+            </AccordionContent>
+          </AccordionItem>
+        </Accordion>
+      </div>
     </div>
   );
 }
