@@ -131,12 +131,11 @@ export function Discover({
             updateGraph();
           }}
           variant="ghost"
-          className="border-b"
+          className="border-b last:border-b-0"
         >
           {action.text} ({action.usersToSearch.length})
         </Button>
       ))}
-      <div>{activeOperations} active searches</div>
     </div>
   );
 }
