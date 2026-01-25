@@ -75,7 +75,10 @@ export function Onboarding() {
                     <li>
                       Open developer tools with <Kbd>Ctrl + Shift + I</Kbd>
                     </li>
-                    <li>Go to the network tab</li>
+                    <li>
+                      Go to the network tab—You MUST do this before refreshing
+                      spotify
+                    </li>
                     <li>Refresh spotify, then wait a few seconds</li>
                     <li>Right click on one of the entries</li>
                     <li>Select Copy Value then Copy All As HAR</li>
