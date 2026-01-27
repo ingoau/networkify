@@ -12,6 +12,7 @@ import {
 import { Input } from "../ui/input";
 import { useGraphState, useSave } from "@/lib/state";
 import { ArchiveRestore, Trash } from "lucide-react";
+import DEMO_DATA from "@/lib/demoData";
 
 export function Data({
   setUsersAction: setUsers,
@@ -60,6 +61,20 @@ export function Data({
         }}
       >
         Load
+      </Button>
+      <Button
+        variant="ghost"
+        className="border-b"
+        onClick={() => {
+          setUsers(
+            DEMO_DATA.map((user) => ({
+              ...user,
+              exclude_from_graph: false,
+            })),
+          );
+        }}
+      >
+        Load demo data
       </Button>
       <div className="bg-card p-4">
         <Accordion
