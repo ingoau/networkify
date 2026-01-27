@@ -1,4 +1,6 @@
-const DEMO_DATA = [
+import { User } from "./types";
+
+const DEMO_DATA: Omit<User, "exclude_from_graph">[] = [
   {
     followers: [
       {
