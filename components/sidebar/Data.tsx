@@ -66,12 +66,7 @@ export function Data({
         variant="ghost"
         className="border-b"
         onClick={() => {
-          setUsers(
-            DEMO_DATA.map((user) => ({
-              ...user,
-              exclude_from_graph: false,
-            })),
-          );
+          setUsers(DEMO_DATA);
         }}
       >
         Load demo data
