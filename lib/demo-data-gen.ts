@@ -46,25 +46,27 @@ const anonFollow = async (user: {
 fs.writeFileSync(
   "./data.json",
   JSON.stringify({
-    users: await Promise.all(
-      DEMO_DATA.users.map(async (user) => {
-        return {
-          ...user,
-          name: "User",
-          username: await calculateHash(user.username),
-          image_url: undefined,
-          followers: await Promise.all(
-            user.followers.map(async (follower) => {
-              return await anonFollow(follower);
-            }),
-          ),
-          following: await Promise.all(
-            user.followers.map(async (follow) => {
-              return await anonFollow(follow);
-            }),
-          ),
-        };
-      }),
-    ),
+    users: (
+      await Promise.all(
+        DEMO_DATA.users.map(async (user) => {
+          return {
+            ...user,
+            name: "User",
+            username: await calculateHash(user.username),
+            image_url: undefined,
+            followers: await Promise.all(
+              user.followers.map(async (follower) => {
+                return await anonFollow(follower);
+              }),
+            ),
+            following: await Promise.all(
+              user.followers.map(async (follow) => {
+                return await anonFollow(follow);
+              }),
+            ),
+          };
+        }),
+      )
+    ).filter((user) => !user.exclude_from_graph),
   }),
 );
