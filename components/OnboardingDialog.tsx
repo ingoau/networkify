@@ -140,16 +140,34 @@ export function Onboarding({
                 <div className="text-xl">How to use</div>
                 <div>
                   <ol className="list-decimal list-inside">
-                    <li>
-                      <b>Add your account:</b> Click <i>Add Current User</i> to
-                      start building your network.
-                    </li>
-                    <li>
-                      <b>Discover connections:</b> Click{" "}
-                      <i>Run on all unsearched nodes</i> to find your followers
-                      and who you follow. You can repeat this to explore
-                      further, but note: the number of users can grow quickly!
-                    </li>
+                    {demoData ? (
+                      <p>
+                        You are using demo mode, so some features like discovery
+                        will not work. If you want to use this app for real, go
+                        to data then clear, and then use a spotify token. The
+                        demo data is actually from my own Spotify account, but
+                        anonymised by hashing the usernames. There is a bug I
+                        can't be bothered to fix where there are some users
+                        without connections around the edge. Ignore this. Also,
+                        the data might take a few seconds to show on the
+                        graph—its attempting to render ~450 nodes and ~7000
+                        edges so wait a bit.
+                      </p>
+                    ) : (
+                      <>
+                        <li>
+                          <b>Add your account:</b> Click <i>Add Current User</i>{" "}
+                          to start building your network.
+                        </li>
+                        <li>
+                          <b>Discover connections:</b> Click{" "}
+                          <i>Run on all unsearched nodes</i> to find your
+                          followers and who you follow. You can repeat this to
+                          explore further, but note: the number of users can
+                          grow quickly!
+                        </li>
+                      </>
+                    )}
                     <li>
                       <b>Node colors:</b>
                       <ul className="list-disc list-inside ml-5">
