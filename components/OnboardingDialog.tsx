@@ -147,7 +147,7 @@ export function Onboarding({
                         to data then clear, and then use a spotify token. The
                         demo data is actually from my own Spotify account, but
                         anonymised by hashing the usernames. There is a bug I
-                        can't be bothered to fix where there are some users
+                        can&apos;t be bothered to fix where there are some users
                         without connections around the edge. Ignore this. Also,
                         the data might take a few seconds to show on the
                         graph—its attempting to render ~450 nodes and ~7000
