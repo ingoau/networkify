@@ -22,6 +22,7 @@ export function Onboarding({
 }: {
   setUsersAction: (users: User[]) => void;
 }) {
+  const [demoData, setDemoData] = useState(false);
   const [page, setPage] = useState(0);
   const onboardingOpen = useOnboardingDialogState((state) => state.open);
   const setOnboardingOpen = useOnboardingDialogState((state) => state.setOpen);
@@ -68,6 +69,7 @@ export function Onboarding({
                     onClick={() => {
                       setPage(3);
                       setUsers(DEMO_DATA.users);
+                      setDemoData(true);
                     }}
                   >
                     Use demo data (coming soon)
