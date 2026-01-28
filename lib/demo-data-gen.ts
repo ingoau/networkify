@@ -16,6 +16,33 @@ async function calculateHash(data: string) {
   return hashHex;
 }
 
+const anonFollow = async (user: {
+  username: string;
+  name: string;
+  image_url?: string;
+}) => {
+  if (user.username.startsWith("spotify:user:")) {
+    return {
+      ...user,
+      name: "User",
+      username:
+        "spotify:user:" +
+        (await calculateHash(user.username.replace("spotify:user:", ""))),
+      image_url: undefined,
+    };
+  } else if (user.username.startsWith("spotify:artist:")) {
+    return {
+      ...user,
+      name: "Artist",
+      username:
+        "spotify:artist:" +
+        (await calculateHash(user.username.replace("spotify:artist:", ""))),
+      image_url: undefined,
+    };
+  }
+  console.log("Somethings fucked");
+};
+
 fs.writeFileSync(
   "./data.json",
   JSON.stringify(
@@ -28,22 +55,12 @@ fs.writeFileSync(
           image_url: undefined,
           followers: await Promise.all(
             user.followers.map(async (follower) => {
-              return {
-                ...follower,
-                name: "User",
-                username: await calculateHash(follower.username),
-                image_url: undefined,
-              };
+              return await anonFollow(follower);
             }),
           ),
           following: await Promise.all(
             user.followers.map(async (follow) => {
-              return {
-                ...follow,
-                name: "User",
-                username: await calculateHash(follow.username),
-                image_url: undefined,
-              };
+              return await anonFollow(follow);
             }),
           ),
         };
