@@ -194,7 +194,7 @@ export default function Home() {
         openAccordionAction={openAccordion}
         key={graphKey}
       />
-      <Onboarding />
+      <Onboarding setUsersAction={setUsers} />
       <div className="fixed bottom-2 left-2 border border-dashed bg-background flex flex-col md:flex-row">
         {stats.map((stat) => (
           <div

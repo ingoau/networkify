@@ -14,8 +14,14 @@ import Link from "next/link";
 import * as tokenUtils from "@/lib/tokenUtils";
 import { toast } from "sonner";
 import { useOnboardingDialogState, usePreferencesState } from "@/lib/state";
+import { User } from "@/lib/types";
+import DEMO_DATA from "@/lib/demoData";
 
-export function Onboarding() {
+export function Onboarding({
+  setUsersAction: setUsers,
+}: {
+  setUsersAction: (users: User[]) => void;
+}) {
   const [page, setPage] = useState(0);
   const onboardingOpen = useOnboardingDialogState((state) => state.open);
   const setOnboardingOpen = useOnboardingDialogState((state) => state.setOpen);
@@ -57,8 +63,14 @@ export function Onboarding() {
                   short amount of time and we only store it on your device.
                 </div>
                 <div className="flex flex-col md:flex-row gap-4">
-                  <Button disabled variant="outline">
-                    Use example data (coming soon)
+                  <Button
+                    variant="outline"
+                    onClick={() => {
+                      setPage(3);
+                      setUsers(DEMO_DATA.users);
+                    }}
+                  >
+                    Use demo data (coming soon)
                   </Button>
                   <Button onClick={() => setPage(2)}>Show me how</Button>
                 </div>
