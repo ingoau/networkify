@@ -45,8 +45,8 @@ const anonFollow = async (user: {
 
 fs.writeFileSync(
   "./data.json",
-  JSON.stringify(
-    await Promise.all(
+  JSON.stringify({
+    users: await Promise.all(
       DEMO_DATA.users.map(async (user) => {
         return {
           ...user,
@@ -66,5 +66,5 @@ fs.writeFileSync(
         };
       }),
     ),
-  ),
+  }),
 );
