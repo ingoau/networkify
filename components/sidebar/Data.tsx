@@ -66,7 +66,7 @@ export function Data({
         variant="ghost"
         className="border-b"
         onClick={() => {
-          setUsers(DEMO_DATA);
+          setUsers(DEMO_DATA.users);
         }}
       >
         Load demo data
