@@ -72,7 +72,7 @@ export function Onboarding({
                       setDemoData(true);
                     }}
                   >
-                    Use demo data (coming soon)
+                    Use demo data
                   </Button>
                   <Button onClick={() => setPage(2)}>Show me how</Button>
                 </div>
